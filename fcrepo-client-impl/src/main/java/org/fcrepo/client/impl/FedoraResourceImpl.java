@@ -413,7 +413,7 @@ public class FedoraResourceImpl implements FedoraResource {
             final StatusLine status = response.getStatusLine();
             final String uri = postVersion.getURI().toString();
 
-            if ( status.getStatusCode() == SC_CREATED) {
+            if ( status.getStatusCode() == SC_CREATED || status.getStatusCode() == SC_NO_CONTENT) {
                 LOGGER.debug("new version created for resource at {}", uri);
             } else if ( status.getStatusCode() == SC_CONFLICT) {
                 LOGGER.debug("The label {} is in use by another version.", label);
